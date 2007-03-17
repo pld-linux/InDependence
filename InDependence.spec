@@ -5,10 +5,9 @@ Release:	1
 Group:		Applications/System
 Source0:	%{name}_%{version}.tar.gz
 # Source0-md5:	df419e1443683305891060985f723902
-Patch0:		%{name}_1.0-rpmlib.asp.patch
+Patch0:		%{name}-rpmlib.patch
 License:	Artistic License
 URL:		http://www.cse.ogi.edu/DISC/projects/independence/
-BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,7 +29,10 @@ administrator. "rpmtc foo.rpm" will transitively compute the -
 %patch0 -p1
 
 %build
-%{__make}
+%{__make} \
+	CC="%{__cc}"
+	CFLAGS="%{rpmcflags}" \
+	LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
