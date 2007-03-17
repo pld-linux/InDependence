@@ -1,0 +1,11 @@
+--- InDependence_1.0/rpmtc/rpmdep-pipe.kad	Wed Jul  4 00:26:23 2001
++++ InDependence_1.0/rpmtc/rpmdep-pipe	Wed Jul  4 00:26:57 2001
+@@ -69,6 +69,8 @@
+       }
+     } elsif ($line =~ /(none)/) {
+       ;
++    } elsif ($line =~ /rpmlib\(.*\)/) {
++      ;
+     } else {
+       #		print "Package or virtual package: $line ";
+       $owning_package = get_virt($line);
