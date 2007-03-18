@@ -1,4 +1,5 @@
 Summary:	RPM Dependency Tracker
+Summary(pl.UTF-8):	Pakiet programów śledzących zależności pakietów RPM
 Name:		InDependence
 Version:	1.0
 Release:	1
@@ -23,6 +24,21 @@ administrator. "rpmtc foo.rpm" will transitively compute the -
 - *entire* set of RPMs necessary to support the foo.rpm package, i.e.
   if foo.rpm depends on bar.rpm, and bar.rpm depends on baz.rpm, RPMTC
   will report both bar and baz.
+
+%description -l pl.UTF-8
+InDependence jest pakietem narzędzi (no, dwóch ;-) zaprojektowanych
+w celu pomocy osobom tworzącym pakiety RPM oraz administratorom
+systemów w śledzeniu zależności pomiędzy pakietami RPM. InDependence
+ma dwa podstawowe komponenty:
+
+Dep: Narzędzie dla osoby przygotowującej pakiety, które identyfikuje
+zewnętrzne pliki lub pakiety RPM używane przez dany program.
+
+RPMTC: "RPM Transitive Closure". Narzędzie dla administratora systemów.
+Polecenie "rpmtc foo.rpm" rekursywnie przeanalizuje *cały* zestaw
+pakietów RPM potrzebnych do instalacji pakietu foo.rpm, np. jeśli
+foo.rpm zależy od bar.rpm, a bar.rpm od baz.rpm, RPMTC zwróci oba
+pakiety: bar i baz.
 
 %prep
 %setup -q -n %{name}_%{version}
