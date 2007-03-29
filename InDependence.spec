@@ -3,12 +3,11 @@ Summary(pl.UTF-8):	Pakiet programów śledzących zależności pakietów RPM
 Name:		InDependence
 Version:	1.0
 Release:	1
+License:	Artistic License
 Group:		Applications/System
 Source0:	%{name}_%{version}.tar.gz
 # Source0-md5:	df419e1443683305891060985f723902
 Patch0:		%{name}-rpmlib.patch
-License:	Artistic License
-URL:		http://www.cse.ogi.edu/DISC/projects/independence/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -52,14 +51,15 @@ pakiety: bar i baz.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d ${RPM_BUILD_ROOT}%{_bindir}
-install dep/dep ${RPM_BUILD_ROOT}%{_bindir}/dep
-install dep/swrapper.pl ${RPM_BUILD_ROOT}%{_bindir}/swrapper.pl
-install rpmtc/rpmtc ${RPM_BUILD_ROOT}%{_bindir}/rpmtc
-install rpmtc/rpmdep-pipe ${RPM_BUILD_ROOT}%{_bindir}/rpmdep-pipe
-install -d ${RPM_BUILD_ROOT}%{_mandir}/man1
-install dep/dep.1 ${RPM_BUILD_ROOT}%{_mandir}/man1/dep.1
-install rpmtc/rpmtc.1 ${RPM_BUILD_ROOT}%{_mandir}/man1/rpmtc.1
+install -d $RPM_BUILD_ROOT%{_bindir}
+
+install dep/dep $RPM_BUILD_ROOT%{_bindir}/dep
+install dep/swrapper.pl $RPM_BUILD_ROOT%{_bindir}/swrapper.pl
+install rpmtc/rpmtc $RPM_BUILD_ROOT%{_bindir}/rpmtc
+install rpmtc/rpmdep-pipe $RPM_BUILD_ROOT%{_bindir}/rpmdep-pipe
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
+install dep/dep.1 $RPM_BUILD_ROOT%{_mandir}/man1/dep.1
+install rpmtc/rpmtc.1 $RPM_BUILD_ROOT%{_mandir}/man1/rpmtc.1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
